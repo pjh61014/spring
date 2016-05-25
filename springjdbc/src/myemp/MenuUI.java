@@ -143,9 +143,12 @@ public class MenuUI implements AbstractUI {
 		String addr = key.next();
 		System.out.print("µî±Þ:");
 		String grade = key.next();
+		System.out.println("dlkjd");
 		MyEmpDTO updateuser = 
 				new MyEmpDTO(id, pass, addr, grade, null);
+		System.out.println(updateuser.toString());
 		dao.update(updateuser);
+		System.out.println(":d");
 		
 
 	}

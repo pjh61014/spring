@@ -24,19 +24,24 @@ public class MyEmpDAOImpl implements MyEmpDAO {
 
 	@Override
 	public void insert(MyEmpDTO user) {
-		// TODO Auto-generated method stub
-
+		String sql = "insert into myemp values(?,?,?,1000,?,'001',?)";
+		int result =
+				template.update(sql, user.getId(),user.getPass(),user.getAddr()
+				,user.getGrade(),user.getName());
+		System.out.println(result+" 개 삽입성공");
 	}
 
 	@Override
 	public void update(MyEmpDTO userInfo) {
-		// TODO Auto-generated method stub
-
+		String sql =  "update myemp set pass=?, addr=?, grade =? where id=?";
+		int result =template.update(sql,userInfo.getPass(),userInfo.getAddr(), userInfo.getGrade(), userInfo.getId());
+		System.out.println(result+" 개 삽입성공");
 	}
 
 	@Override
 	public void delete(String id) {
-		// TODO Auto-generated method stub
+		String sql =  "delete myemp  where id=?";
+		template.update(sql, id);
 
 	}
 
