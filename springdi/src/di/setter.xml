@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="dao" class="di.setter.basic.MemberDAO"/>
+	 <!--  setter Injection을 이용해서 컨테이너로 부터 주입받기 -->
+	 <bean id ="insa" class= "di.setter.basic.InsaImpl">
+	 <!-- property엘리먼트의 name 속성은 무엇을 의미? ㅁ 
+	 	name : setter메소드의 set을 빼고 첫글자를 소문자로 바꾼 이름 
+	 	-->
+	 	<property name="dao" ref="dao"></property>
+	 </bean>
+	 
+		<bean id="logic" class="di.setter01.MyBeanLogic"></bean>
+	 	 <bean id="mybean" class="di.setter01.MyBeanImpl">
+	 
+	 	<property name="name" value="장동건" ></property>
+	 	<property name="msg" value="안녕하세요"></property>
+	 	<property name="logic" ref="logic"></property>
+	 	</bean>
+	 	
+	 	 <bean id="mybean3" class="di.setter01.MyBeanImpl">
+	 	 <constructor-arg value="장동건" index="1"> </constructor-arg>
+	 	  <constructor-arg value="안녕" index="0"> </constructor-arg>
+	 	 <property name="logic" ref="logic"></property>
+	 	 </bean>
+	 	 
+	 	 <bean id= "dice" class="di.setter02.Dice"></bean>
+	 	 
+	 	 <bean id="player" class="di.setter02.Player">
+	 	 	<property name="d" ref="dice"></property>
+	 	  
+	 	 </bean>
+	 	 <bean id= "fileoutter" class="di.setter03.FileOutputter">
+	 	 
+	 	 </bean>
+	 	 <bean id ="message" class="di.setter03.MessageBean">
+	 	 	<property name="name" value="장동건"></property>
+	 	 	<property name="greeting" value="화이팅"></property>
+	 	 	<property name="outputter" ref="fileoutter"></property>
+	 	 	 	 
+	 	 </bean>
+	 	<bean id="sql" class="di.setter04.MysqlArticleDAO" />
+	 	<bean id="article" class="di.setter04.WriteArticleMgr">
+	 	
+	 	 	<property name="articleDAO" ref="sql"></property>
+	 	 	 
+	 	 </bean>
+	<bean id="oracle" class="di.setter04.OracleArticleDAO" /> 	 
+	<bean id="article2" class="di.setter04.WriteArticleMgr">
+	<constructor-arg ref="oracle"></constructor-arg>
+	
+	</bean>
+	 	 
+	 
+	</beans>
