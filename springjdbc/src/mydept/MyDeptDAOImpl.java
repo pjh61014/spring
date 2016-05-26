@@ -15,12 +15,8 @@ public class MyDeptDAOImpl implements MyDeptDAO {
 	}
 	
 
+	
 
-	@Override
-	public int count() {
-		
-		return template.queryForObject("select count(*) from mydept", Integer.class);
-	}
 
 	@Override
 	public void insert(MyDeptDTO dept) {
@@ -50,16 +46,30 @@ public class MyDeptDAOImpl implements MyDeptDAO {
 		return null;
 	}
 
+	
 	@Override
-	public List<MyDeptDTO> getMemberList() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<MyDeptDTO> selectdeptlist() {
+		String sql = "select * from mydept";
+		return template.query(sql, new MyDeptRowMapper());
 	}
 
+
+
 	@Override
-	public List<MyDeptDTO> findByAddr(String addr) {
-		// TODO Auto-generated method stub
-		return null;
+	public MyDeptDTO getDeptInfoList(String deptno) {
+		String sql = "select * from mydept where deptno =?";
+		return template.queryForObject(sql, new Object[]{deptno},new MyDeptRowMapper());
+	}
+
+
+
+
+
+	@Override
+	public List<MyDeptDTO> selectempbydept(String deptname) {
+		String sql = "select e.* from mydept d, myemp e where d.deptno = e.deptno and d.deptname like ?";
+		return template.query(sql, new Object[]{'%'+deptname+'%'},new MyDeptRowMapper());
+		
 	}
 
 }

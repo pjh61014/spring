@@ -8,7 +8,7 @@ public class MyDeptSystem {
 		ApplicationContext factory = 
 			 new ClassPathXmlApplicationContext("deptconfig/scott.xml");
 		AbstractUI ui = (AbstractUI)factory.getBean("menuui");
-		System.out.println("dd");
+		
 		while(true){
 			ui.show();
 		}

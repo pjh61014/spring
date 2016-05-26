@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface MyDeptDAO {
 	//회원인원수 조회
-	int count();
+	List<MyDeptDTO> selectempbydept(String deptname);
 	//회원가입
 	void insert(MyDeptDTO dept);
 	//회원정보수정
@@ -13,10 +13,10 @@ public interface MyDeptDAO {
 	void delete(String id);
 	//로그인
 	MyDeptDTO login(String id,String pass);
-	//회원목록보기
-	List<MyDeptDTO> getMemberList();
+	//부서정보조회 
+	MyDeptDTO getDeptInfoList(String deptno);
 	//주소로 검색
-	List<MyDeptDTO> findByAddr(String addr);
+	List<MyDeptDTO> selectdeptlist();
 	
 }
 
