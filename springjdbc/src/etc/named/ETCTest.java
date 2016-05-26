@@ -11,7 +11,7 @@ public class ETCTest {
 		ApplicationContext container = new ClassPathXmlApplicationContext("config/etc.xml");
 		
 		MyEmpDAOETCimpl dao =(MyEmpDAOETCimpl)container.getBean("namedao");
-		dao.insert(new MyEmpDTO("jang","111","부산","7등급", "장동건"));
+		dao.insert(new MyEmpDTO("jang12","111","부산","7등급", "장동건"));
 	}
 
 }

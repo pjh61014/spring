@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 
 import myemp.MyEmpDAO;
@@ -14,6 +15,19 @@ public class MyEmpDAOETCimpl implements MyEmpDAO {
 		
 	public void setTemplate(NamedParameterJdbcTemplate template) {
 		this.template = template;
+	}
+	/*
+	 * 2차 작업 
+	 * BeanPropertySqlParameterSource기반 
+	 * DTO클래스의 프로퍼티명과 SQL의 파라미터명이 일치하는 것을 매핑시켜서 작업
+	 * */
+	@Override
+	public void insert(MyEmpDTO user) {
+		String sql =
+				"insert into myemp values(:id,:pass,:addr,100000, :grade, '002', :name)";
+		int result =template.update(sql, new BeanPropertySqlParameterSource(user));
+		
+		System.out.println(result+"개 삽입(BeanPropertySqlParameterSource)");
 	}
 
 	@Override
@@ -28,8 +42,8 @@ public class MyEmpDAOETCimpl implements MyEmpDAO {
 	 * 파라미터 name과 value를 map에 등록
 	 * =>index기반보다 불편 
 	 * */
-
-	@Override
+	
+	/*@Override
 	public void insert(MyEmpDTO user) {
 		String sql =
 				"insert into myemp values(:id,:pass,:addr,100000, :grade, '002', :name)";
@@ -45,7 +59,7 @@ public class MyEmpDAOETCimpl implements MyEmpDAO {
 		System.out.println(result+"개 삽입성공");
 		
 
-	}
+	}*/
 
 	@Override
 	public void update(MyEmpDTO userInfo) {
@@ -76,5 +90,7 @@ public class MyEmpDAOETCimpl implements MyEmpDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	
 
 }

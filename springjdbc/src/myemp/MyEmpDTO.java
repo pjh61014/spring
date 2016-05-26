@@ -71,10 +71,11 @@ public class MyEmpDTO{
 		this.deptno = deptno;
 	}
 	public String getName() {
+		System.out.println("getname");
 		return name;
 	}
 	public void setName(String name) {
-		
+		System.out.println("setname");
 		this.name = name;
 	}
 	@Override
