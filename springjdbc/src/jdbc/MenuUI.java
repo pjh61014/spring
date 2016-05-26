@@ -48,7 +48,6 @@ public class MenuUI implements AbstractUI {
 	/*@Override
 	public void deleteMenu() {
 		// TODO Auto-generated method stub
-
 	}*/
 
 	/*@Override
@@ -132,15 +131,7 @@ public class MenuUI implements AbstractUI {
 		MemberDTO user
 			= new MemberDTO(id, pass, addr, memo);
 		dao.update(user);
-
 	}*/
 
 }
-
-
-
-
-
-
-
 
