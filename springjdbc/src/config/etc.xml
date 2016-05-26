@@ -5,6 +5,17 @@
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
 	<import resource="data.xml"/>
+	<!-- SimpleInsert -->
+	<bean id ="simple" class="org.springframework.jdbc.core.simple.SimpleJdbcInsert">
+	<constructor-arg ref="con"></constructor-arg>
+	
+	</bean>
+	
+	<bean id="simpledao" class= "etc.simple.MyEmpDAOETCimpl">
+	<constructor-arg ref ="simple"/>
+	</bean>
+	
+	<!-- 파라미터명으로 매핑 -->
 	<bean id="nametemp"
 	class = "org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate"> 
 	<constructor-arg ref="con"></constructor-arg>
