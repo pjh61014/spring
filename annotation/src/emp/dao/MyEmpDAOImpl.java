@@ -2,27 +2,20 @@ package emp.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
 
 import emp.dto.MyEmpDTO;
 import emp.dto.MyEmpRowMapper;
-
+@Repository("empdao")
 public class MyEmpDAOImpl implements MyEmpDAO {
-
+	@Autowired
 	private JdbcTemplate template;
-		
-		
-	public MyEmpDAOImpl() {
-		super();
-	}
 
 
 
-	public MyEmpDAOImpl(JdbcTemplate template) {
-		super();
-		this.template = template;
-	}
 	
 
 
