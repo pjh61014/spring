@@ -62,7 +62,7 @@ public class MyEmpServiceImpl implements MyEmpService {
 	@Override
 	public List<MyEmpDTO> findByAddr(String addr) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.findByAddr(addr);
 	}
 
 }

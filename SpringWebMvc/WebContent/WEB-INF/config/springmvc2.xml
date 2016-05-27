@@ -34,4 +34,9 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 	<bean name="/list.do" class="emp.controller.SelectEmpListController">
 		<constructor-arg ref="serviceimpl"></constructor-arg>
 	</bean>
+	
+	<bean name="/search.do" class="emp.controller.SearchFormController">
+		<constructor-arg ref="serviceimpl"></constructor-arg>
+	
+	</bean>
 </beans>
