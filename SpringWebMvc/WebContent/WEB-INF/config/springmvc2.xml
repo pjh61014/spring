@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<import resource="data.xml"/>
+	<bean name ="/test.do" class="test.TestController"/>
+	
+	<!-- ============== spring webmvc에서 지원하는api들 사용=================== -->
+	<!-- view resolver를 등록 -->
+	
+	<bean id="resolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
+	
+	<!-- ==============화면을 보여주는 컨트롤러  -->
+	<bean name="/index.do" class="main.indexController"/>
+	<bean name="/insert_form.do" class="emp.controller.InsertFormController"/>
+	
+	<!-- ===============di==================== -->
+	
+	
+	<bean id="dao" class="emp.dao.MyEmpDAOImpl">
+		<constructor-arg ref="template"></constructor-arg>
+	</bean>
+	
+	<bean id ="serviceimpl" class="emp.service.MyEmpServiceImpl">
+		<property name="dao" ref ="dao"></property>
+	</bean>
+	
+	
+	<!--  -->
+	<bean name="/list.do" class="emp.controller.SelectEmpListController">
+		<constructor-arg ref="serviceimpl"></constructor-arg>
+	</bean>
+</beans>
