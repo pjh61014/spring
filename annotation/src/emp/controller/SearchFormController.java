@@ -5,19 +5,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import jdk.nashorn.internal.ir.RuntimeNode.Request;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
 
 import emp.service.MyEmpService;
 
+@Controller
 public class SearchFormController extends AbstractController {
-	MyEmpService service;
+	@Autowired
+	MyEmpService service; 
 	
-	public SearchFormController(MyEmpService service) {
-		super();
-		this.service = service;
-	}
 	@Override
+	@RequestMapping(value="/search.do", method=RequestMethod.GET)
 	protected ModelAndView handleRequestInternal(HttpServletRequest req,
 			HttpServletResponse res) throws Exception {
 		

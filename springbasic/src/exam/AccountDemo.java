@@ -9,6 +9,7 @@ public class AccountDemo {
 		Scanner key = new Scanner(System.in);
 		/*Account acc = new Account();*/
 		
+		//ApplicationContext 인터페이
 		ApplicationContext factory = new ClassPathXmlApplicationContext("config/bean.xml");
 		Account acc = (Account)factory.getBean("obj2");
 		acc.setAccId("111-222-3333");

@@ -20,7 +20,7 @@ public class TestMain02 {
 		mgr.write(user2);
 		
 		IWriteArticleMgr mgr3 =(IWriteArticleMgr)factory.getBean("article");
-		ArticleDTO user = new ArticleDTO("jang","1234","ddd","dd");
+		//ArticleDTO user = new ArticleDTO("jang","1234","ddd","dd");
 		
 		mgr.write(user);
 
