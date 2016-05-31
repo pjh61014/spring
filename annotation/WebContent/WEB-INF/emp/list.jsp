@@ -12,6 +12,8 @@
 <% ArrayList<MyEmpDTO> userlist  =
 			(ArrayList<MyEmpDTO>)request.getAttribute("userlist"); 
 	   int size = userlist.size();	%>
+  <form name="form1" method="post" 
+					action="update.do">
 	<h1>회원목록(MVC)</h1>
 	
 	<hr/>
@@ -24,7 +26,7 @@
 		<%for(int i = 0;i<size;i++){
 			MyEmpDTO user = userlist.get(i);%>
 			<tr>
-				<td><a href="/annotation/update.do?user=<%=user%>"><%= user.getId() %></a></td>
+				<td><a href="/annotation/details.do?id=<%=user.getId()%>&name=<%=user.getName()%>&user=<%=user%>"><%= user.getId() %></a></td>
 				<td><%= user.getPass() %></td>
 				<td><%= user.getName() %></td>
 				<td><%= user.getAddr()%></td>
@@ -34,7 +36,7 @@
 			</tr>
 		<%} %>
 	</table>
-	
+</form>	
 </body>
 </html>
 
