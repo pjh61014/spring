@@ -16,16 +16,18 @@ public class detailsController{
 	MyEmpService service;
 	
 	@RequestMapping(value="/details.do", method=RequestMethod.GET)
-	public ModelAndView readEmp(HttpServletRequest req, String id, String name,MyEmpDTO user) throws Exception{
+	public ModelAndView readEmp(HttpServletRequest req, String id) throws Exception{
 		req.setCharacterEncoding("euc-kr");
-	System.out.println(id+":"+name);
-	System.out.println(user);
+		System.out.println(id);
+		MyEmpDTO user =service.read(id);
+		System.out.println(user);
+	
 	ModelAndView mav = new ModelAndView();
-	mav.addObject("user",user);
-	mav.setViewName("emp/detail");
+//	mav.addObject("user",user);
+	//mav.setViewName("emp/detail");
 	
 		
-		return mav;
+		return null;
 	}
 
 }

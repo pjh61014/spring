@@ -59,4 +59,10 @@ public class MyEmpServiceImpl implements MyEmpService {
 		return dao.findByAddr(addr);
 	}
 
+	@Override
+	public MyEmpDTO read(String id) {
+		System.out.println("serviceÅë°ú");
+		return dao.read(id);
+	}
+
 }

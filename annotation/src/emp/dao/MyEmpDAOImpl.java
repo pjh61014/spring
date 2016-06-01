@@ -79,6 +79,15 @@ public class MyEmpDAOImpl implements MyEmpDAO {
 		// TODO Auto-generated method stub
 		return template.query("select * from myemp where addr like ?", new Object[]{"%"+addr+"%"}, new MyEmpRowMapper());
 	}
+
+
+
+	@Override
+	public MyEmpDTO read(String id) {
+		// TODO Auto-generated method stub
+		System.out.println("dao");
+		return  template.queryForObject("select * from myemp where id= ?", new MyEmpRowMapper(),id);
+	}
 	
 	
 
