@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% MyEmpDTO userDetails  = (MyEmpDTO)request.getAttribute("userlist");	%>
+<% MyEmpDTO userDetails  = (MyEmpDTO)request.getAttribute("user");	%>
 	<div align="center">
 		<table width="400" border="1">
 			<tr>
@@ -25,7 +25,7 @@
 			</tr>
 			<tr>
 				<td>회원주소</td>
-				<td><%=userDetails.getAddr() %></td>
+				<td><input type= id=""><%=userDetails.getAddr() %></td>
 			</tr>
 			<tr>
 				<td>회원부서코드</td>
@@ -37,7 +37,7 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<input type="button" value="수정하기" onclick="location.href='update.do'"/>
+					<input type="submit" value="수정하기" onclick="location.href='update.do?id=<%=userDetails.getId()%>&name=<%=userDetails.getName()%>'"/>
 					<input type="button" value="삭제하기"/>
 					<input type="button" value="목록보기"
 						onclick="location.href='member_list.do'"/>

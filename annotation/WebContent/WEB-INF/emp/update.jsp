@@ -9,6 +9,11 @@
 </head>
 
 <body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
+<%
+	String id=(String)request.getAttribute("id");
+	String name=(String)request.getAttribute("name");
+
+%>
 <form name="form1" method="post" 
 					action="member_update.do">
 <table align="center" cellpadding="0" cellspacing="0" width="479">
@@ -27,7 +32,7 @@
             <p><code><b>아이디</b></code></p>
         </td>
         <td width="359">
-            <p><code></code></p>
+            <p><code><%=id%></code></p>
         </td>
     </tr>
    <tr>
@@ -44,7 +49,7 @@
             <p><code><b>성명</b></code></p>
         </td>
         <td width="359">
-            <p><code></code></p>
+            <p><code><%=name %></code></p>
         </td>
     </tr>
     <tr>
