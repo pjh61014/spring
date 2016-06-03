@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
+    <%@page import="emp.dto.MyEmpDTO"%>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=euc-kr">
@@ -10,12 +11,11 @@
 
 <body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
 <%
-	String id=(String)request.getAttribute("id");
-	String name=(String)request.getAttribute("name");
+MyEmpDTO userDetails  = (MyEmpDTO)request.getAttribute("user");
 
 %>
 <form name="form1" method="post" 
-					action="member_update.do">
+					action="update.do">
 <table align="center" cellpadding="0" cellspacing="0" width="479">
     <tr>
         <td width="469" colspan="2" height="42">
@@ -32,7 +32,8 @@
             <p><code><b>아이디</b></code></p>
         </td>
         <td width="359">
-            <p><code><%=id%></code></p>
+            <p><code><input type="hidden" name = "id" value = "<%=userDetails.getId() %>">
+            <%=userDetails.getId() %></code></p>
         </td>
     </tr>
    <tr>
@@ -41,7 +42,7 @@
         </td>
         <td width="359">
             <p><code><input type="text" name="pass" 
-            value="" size="30"></code></p>
+            value="<%=userDetails.getPass() %>" size="30"></code></p>
         </td>
     </tr>
     <tr>
@@ -49,7 +50,8 @@
             <p><code><b>성명</b></code></p>
         </td>
         <td width="359">
-            <p><code><%=name %></code></p>
+            <p><code><input type="hidden" name ="name" value="<%=userDetails.getName()%>">
+            <%=userDetails.getName() %></code></p>
         </td>
     </tr>
     <tr>
@@ -58,7 +60,7 @@
         </td>
         <td width="359">
             <p><code><input type="text" name="addr"
-            value="" size="51"></code></p>
+            value="<%=userDetails.getAddr()%>" size="51"></code></p>
         </td>
     </tr>
  
@@ -67,8 +69,9 @@
             <p><code><b>등급</b></code></p>
         </td>
         <td width="359">
-            <p><textarea name="grade" rows="10" 
-            cols="50"></textarea></p>
+            <p>
+             <textarea name="grade" rows="10" cols="50"><%=userDetails.getGrade() %></textarea>
+            </p>
         </td>
     </tr>
    

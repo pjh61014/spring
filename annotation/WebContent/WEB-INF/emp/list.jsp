@@ -12,8 +12,7 @@
 <% ArrayList<MyEmpDTO> userlist  =
 			(ArrayList<MyEmpDTO>)request.getAttribute("userlist"); 
 	   int size = userlist.size();	%>
-  <form name="form1" method="post" 
-					action="update.do">
+  
 	<h1>회원목록(MVC)</h1>
 	
 	<hr/>
@@ -32,11 +31,11 @@
 				<td><%= user.getAddr()%></td>
 				<td><%= user.getDeptno()%></td>
 				<td>
-		<a href="/webtest/delete.do?id=<%=user.getId() %>">삭제</a></td>
+		<a href="/annotation/delete.do?id=<%=user.getId() %>">삭제</a></td>
 			</tr>
 		<%} %>
 	</table>
-</form>	
+
 </body>
 </html>
 
