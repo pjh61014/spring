@@ -29,15 +29,11 @@ public class MyEmpServiceImpl implements MyEmpService {
 		dao.insert(user);
 	}
 
-	@Override
-	public void update(MyEmpDTO userInfo) {
-		// TODO Auto-generated method stub
 
-	}
 
 	@Override
 	public void delete(String id) {
-		// TODO Auto-generated method stub
+		dao.delete(id);
 
 	}
 
@@ -63,6 +59,12 @@ public class MyEmpServiceImpl implements MyEmpService {
 	public MyEmpDTO read(String id) {
 		System.out.println("serviceÅë°ú");
 		return dao.read(id);
+	}
+
+	@Override
+	public void update(MyEmpDTO userInfo) {
+		dao.update(userInfo);
+		
 	}
 
 }

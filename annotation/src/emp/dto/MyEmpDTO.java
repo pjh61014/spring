@@ -34,6 +34,17 @@ public class MyEmpDTO{
 		this.deptno = deptno;
 		this.name = name;
 	}
+	
+	
+	public MyEmpDTO(String id, String pass, String addr, String grade, String deptno, String name) {
+		super();
+		this.id = id;
+		this.pass = pass;
+		this.addr = addr;
+		this.grade = grade;
+		this.deptno = deptno;
+		this.name = name;
+	}
 	public String getId() {
 		return id;
 	}

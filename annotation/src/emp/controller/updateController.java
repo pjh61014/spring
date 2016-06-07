@@ -6,26 +6,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import emp.dto.MyEmpDTO;
 import emp.service.MyEmpService;
 @Controller
 public class updateController {
 	@Autowired
 	MyEmpService service;
 	
-	@RequestMapping(value="/update.do", method=RequestMethod.GET)
-	public ModelAndView showpage(String id, String name) {
-		System.out.println(id+":"+name);
+	@RequestMapping(value="/read.do", method=RequestMethod.POST)
+	public ModelAndView showpage(MyEmpDTO user) {
+		System.out.println(user);
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("id",id);
-		mav.addObject("name",name);
+		mav.addObject("user",user);
+		
 		mav.setViewName("emp/update");
 		return mav;
 	}
-/*	
+	
 	@RequestMapping(value="/update.do", method=RequestMethod.POST)
-	public ModelAndView update() {
+	public ModelAndView update(MyEmpDTO user) {
 		// TODO Auto-generated method stub
-		return "emp/update";
+		System.out.println("update.do"+user);
+		service.update(user);
+		
+		return new ModelAndView("redirect:list.do");
 	}
-*/
+
 }
