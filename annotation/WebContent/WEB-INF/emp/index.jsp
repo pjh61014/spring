@@ -16,8 +16,10 @@
 		<h3><a href="list.do">회원목록보기</a></h3>
 		<h3><a href="search.do">회원검색(검색액션:/search)</a></h3>
 		<h3><a href="board_list.do">게시판</a></h3>
-		
+				
 	</div>
+	
+	<a href="#" class="btn btn-success active">로그인<i class="icon-ok icon-white"></i></a>
 </body>
 </html>
 
