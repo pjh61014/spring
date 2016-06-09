@@ -57,14 +57,12 @@ public class MyEmpDAOImpl implements MyEmpDAO {
 	@Override
 	public MyEmpDTO login(String id, String pass) {
 		MyEmpDTO loginuser = null;
-		MyEmpDTO loginuser2 = null;
+		//MyEmpDTO loginuser2 = null;
 		
-		try{
 		loginuser=template.queryForObject("select * from myemp where id=? and pass=?", new MyEmpRowMapper(),id,pass);
-		loginuser2=template.queryForObject("select * from myemp where id=? and pass=?", new Object[]{id,pass},new MyEmpRowMapper());
-		}catch(EmptyResultDataAccessException e){
-			
-		}
+		//loginuser2=template.queryForObject("select * from myemp where id=? and pass=?", new Object[]{id,pass},new MyEmpRowMapper());
+		
+		
 		return loginuser;
 	}
 

@@ -40,7 +40,7 @@ public class MyEmpServiceImpl implements MyEmpService {
 	@Override
 	public MyEmpDTO login(String id, String pass) {
 		// TODO Auto-generated method stub
-		return null;
+		return dao.login(id, pass);
 	}
 
 	@Override
