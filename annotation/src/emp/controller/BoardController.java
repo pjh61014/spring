@@ -1,27 +1,28 @@
 package emp.controller;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
 
-import emp.dto.MyEmpDTO;
 import emp.service.MyEmpService;
 
 @Controller
-public class loginController  {
+public class BoardController  {
 	@Autowired
 	MyEmpService service;
 	
-	@RequestMapping(value="/login.do", method=RequestMethod.GET)
+	@RequestMapping(value="/board_list.do", method=RequestMethod.GET)
 	public String showlogin(){
-		return "emp/login";
+		return "emp/board";
 	}
 	
-	@RequestMapping(value="/login.do", method=RequestMethod.POST)
+	@RequestMapping(value="/board_write.do", method=RequestMethod.GET)
+	public String insert(){
+		return "emp/board_write";
+	}
+	
+	/*@RequestMapping(value="/login.do", method=RequestMethod.POST)
 	public ModelAndView login(HttpSession session, String id, String pass){
 		System.out.println("id: "+id+"pass: "+pass);
 		ModelAndView mav = new ModelAndView();
@@ -40,5 +41,5 @@ public class loginController  {
 		session.invalidate();
 		return "emp/index";
 	}
-
+*/
 }
