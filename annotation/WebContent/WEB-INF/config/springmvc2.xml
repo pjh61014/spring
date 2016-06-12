@@ -11,6 +11,7 @@ http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 	<context:component-scan base-package="main"></context:component-scan>
 	<context:component-scan base-package="test"></context:component-scan>
 	<context:component-scan base-package="emp"></context:component-scan>
+	<context:component-scan base-package="board"></context:component-scan>
 	
 	
 	<!-- ============== spring webmvc에서 지원하는api들 사용=================== -->

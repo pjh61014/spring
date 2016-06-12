@@ -1,17 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="EUC-KR" session="true"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body bgcolor="white" text="black" link="blue" vlink="purple" alink="red">
-<form name="form1" method="post" action="insert.do">
+<form name="form1" method="post" action="board_reg.do">
+<div class="container">
 <table align="center" cellpadding="0" cellspacing="0" width="479">
     <tr>
         <td width="469" colspan="2" height="42">
-            <p align="center"><code><b><span style="font-size:20pt;">회원가입</span></b></code></p>
+            <p align="center"><code><b><span style="font-size:20pt;">게시물 등록</span></b></code></p>
         </td>
     </tr>
     <tr>
@@ -24,17 +28,27 @@
             <p><code><b>아이디</b></code></p>
         </td>
         <td width="359">
-            <p><code><input type="text" name="id" size="30"></code></p>
+            <p><code><input type="text" name="memid" size="30"></code></p>
         </td>
     </tr>
-   <tr>
+    <tr>
         <td width="104">
-            <p><code><b>비밀번호</b></code></p>
+            <p><code><b>제목</b></code></p>
         </td>
         <td width="359">
-            <p><code><input type="text" name="pass" size="30"></code></p>
+            <p><code><input type="text" name="title" size="50"></code></p>
         </td>
     </tr>
+    <tr>
+        <td width="104">
+            <p><code><b>내용</b></code></p>
+        </td>
+        <td width="359">
+            <p><textarea name="text" rows="10" cols="50"></textarea></p>
+        </td>
+    </tr>
+    
+   <!-- 
     <tr>
         <td width="104">
             <p><code><b>성명</b></code></p>
@@ -51,15 +65,8 @@
             <p><code><input type="text" name="addr" size="51"></code></p>
         </td>
     </tr>
- 
-    <tr>
-        <td width="104">
-            <p><code><b>등급</b></code></p>
-        </td>
-        <td width="359">
-            <p><textarea name="grade" rows="10" cols="50"></textarea></p>
-        </td>
-    </tr>
+  -->
+    
    
    
     <tr>
@@ -67,12 +74,17 @@
             <hr>        </td>
     </tr>
     <tr>
-        <td width="479" colspan="2">
-            <p align="center"><input type="submit" name="formbutton1" value="가입"></p>
-        </td>
+        <td width="479" colspan="2" align="center">
+	<button type="submit" class="btn btn-success">게시물 등록</button>        
+	<button type="button" class="btn btn-info" onclick="location.href='board_write.do'">게시물 수정</button>        
+	<button type="button" class="btn btn-danger" onclick="location.href='board_write.do'">게시물 삭제</button>       
+
+	 </td>
     </tr>
+        
     <tr>
-        <td width="479" colspan="2" height="9" valign="bottom">            
+        <td width="479" colspan="2" height="9" valign="bottom">   
+        		<br/>         
                 <p><code><a href="/webTest/MemberListServlet">리스트(L)</a></code></p>
         </td>
     </tr>
@@ -81,6 +93,7 @@
         </td>
     </tr>
 </table>
+</div>
 </form>
 </body>
 </html>
