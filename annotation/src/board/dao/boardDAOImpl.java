@@ -16,17 +16,9 @@ public class boardDAOImpl implements BoardDAO {
 	
 	@Override
 	public void insert(BoardDTO brd) {
-		String sql = "insert into tb_board values(boardno.nextval,?,?,?,null,1,sysdate,null)";
-	Date d= new Date();
-		
-		String s = d.toString();
-		
-		System.out.println(s);
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss");
-		
-		System.out.println(sdf.format(d));
-
+		String sql = "insert into tb_board values(boardno.nextval,?,?,?,null,1,to_char(sysdate,'YYYYMMDDHH24MISS'),null)";
+		int result = template.update(sql,brd.getMemid(),brd.getTitle(),brd.getText());
+		System.out.println(result+ " °³ »ðÀÔ¼º°ø");
 	}
 
 	@Override
