@@ -30,7 +30,7 @@ public class SearchFormController extends AbstractController {
 		//공유할 데이터를 정의ㅏ-request.setAttribute("msg","스프링에서 넘어온 데이터")
 		mav.addObject("userlist",service.findByAddr(loc));
 		//forward할 뷰에 대한 정보를 정의
-		mav.setViewName("emp/searchlist");
+		mav.setViewName("search/form");
 		return mav;
 	}
 
